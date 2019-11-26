@@ -1,1 +1,1 @@
-SPOTIAPP
+Admin
