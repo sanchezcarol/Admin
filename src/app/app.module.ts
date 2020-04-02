@@ -13,7 +13,6 @@ import { APP_ROUTES } from './app.routes';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
 import { PagesModule } from './pages/pages.module';
-import { PagesComponent } from './pages/pages.component';
 
 @NgModule({
   declarations: [
