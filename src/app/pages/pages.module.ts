@@ -13,6 +13,7 @@ import { IncrementComponent } from '../components/increment/increment.component'
 import { PAGES_ROUTES } from './pages.routes';
 import { GraphicsDoughnutComponent } from '../components/graphics-doughnut/graphics-doughnut.component';
 import { CommonModule } from '@angular/common';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 @NgModule({
     declarations: [
@@ -21,7 +22,8 @@ import { CommonModule } from '@angular/common';
         Graphics1Component,
         PagesComponent,
         IncrementComponent,
-        GraphicsDoughnutComponent
+        GraphicsDoughnutComponent,
+        AccountSettingsComponent
     ],
     exports:[
         DashboardComponent,
