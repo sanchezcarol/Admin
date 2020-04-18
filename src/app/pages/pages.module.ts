@@ -14,6 +14,8 @@ import { PAGES_ROUTES } from './pages.routes';
 import { GraphicsDoughnutComponent } from '../components/graphics-doughnut/graphics-doughnut.component';
 import { CommonModule } from '@angular/common';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { PromesasComponent } from './promesas/promesas.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 @NgModule({
     declarations: [
@@ -23,7 +25,9 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
         PagesComponent,
         IncrementComponent,
         GraphicsDoughnutComponent,
-        AccountSettingsComponent
+        AccountSettingsComponent,
+        PromesasComponent,
+        RxjsComponent
     ],
     exports:[
         DashboardComponent,
