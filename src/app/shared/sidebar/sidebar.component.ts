@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SidebarService } from 'src/app/services/service.index';
+import { SidebarService, UserService } from 'src/app/services/service.index';
 declare function init_plugins()
 
 @Component({
@@ -9,12 +9,14 @@ declare function init_plugins()
 })
 export class SidebarComponent implements OnInit {
 
-  constructor(private _sidebar:SidebarService) { }
+  constructor(private userService:UserService, private _sidebar:SidebarService) { }
 
   ngOnInit() {
     init_plugins();
   }
 
-  
+  logout(){
+    this.userService.logout()
+  }
 
 }
