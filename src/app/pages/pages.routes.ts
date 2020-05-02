@@ -7,6 +7,7 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { LoginGuardGuard } from '../services/service.index';
+import { ProfileComponent } from './profile/profile.component';
 
 
 const PagesRoutes: Routes = [
@@ -16,6 +17,7 @@ const PagesRoutes: Routes = [
         canActivate: [LoginGuardGuard],
         children: [
             { path: 'account-settings', component: AccountSettingsComponent, data: {titulo:"Ajustes"}},
+            { path: 'profile', component: ProfileComponent, data: {titulo:'Perfil de Usuario'}},
             { path: 'dashboard', component: DashboardComponent, data: {titulo:"Dashboard"} },
             { path: 'graphics1', component: Graphics1Component, data: {titulo:"Graficas"} },
             { path: 'progress', component:ProgressComponent, data: {titulo:"Progress"} },

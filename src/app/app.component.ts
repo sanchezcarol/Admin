@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SettingsService } from './services/service.index';
 
+declare function init_plugins()   
 
 @Component({
   selector: 'app-root',
@@ -12,5 +13,6 @@ export class AppComponent {
   constructor(public setting:SettingsService){}
 
   ngOnInit(): void {
+    init_plugins()
   }
 }

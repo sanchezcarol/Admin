@@ -1,0 +1,54 @@
+<div class="row">
+
+    <div class="col-lg-7">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Usuario</h4>
+                <form ngNativeValidate #form="ngForm" (ngSubmit)="update(form.value)" class="form p-t-20">
+                    <div class="form-group">
+                        <label for="exampleInputName">UserName</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="ti-user"></i></div>
+                            <input ngModel="{{user.name}}" name="name" type="text" class="form-control" placeholder="Nombre de Usuario">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName">Email</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="ti-email"></i></div>
+                            <input ngModel="{{user.email}}" name="email" [disabled]="user.google" type="email" class="form-control" placeholder="Email">
+                        </div>
+                    </div>
+
+                    <button class="btn  waves-effect waves-light m-r-10">
+                            <i class="fa fa-save"></i>
+                            Guardar 
+                        </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-5">
+        <div class="card">
+            <div class="card-body" align="center">
+                <h4 class="card-title">Foto de perfil</h4>
+                <h6 class="card-subtitle">Seleccionar imagen de perfil</h6>
+
+                <img *ngIf="!imgTemp" class="w150" [src]="user.img | image">
+                <img *ngIf="imgTemp" class="w150" [src]="imgTemp">
+                <br><br>
+
+                <input (change)="change($event.target.files[0])" type="file">
+
+                <br><br>
+
+                <button (click)="chanceImage()" [disabled]="!uploadImage" class="btn btn-block waves-effect waves-light m-r-10">
+                    <i class="fa fa-save"></i>
+                    Cambiar foto 
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -6,6 +6,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { PipesModule } from '../pipes/pipes.module';
 
 @NgModule({
     declarations:[
@@ -22,7 +23,8 @@ import { CommonModule } from '@angular/common';
     ],
     imports:[
         CommonModule,
-        RouterModule
+        RouterModule,
+        PipesModule
     ]
 })
 
