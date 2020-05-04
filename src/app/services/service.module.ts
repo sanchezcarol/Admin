@@ -9,14 +9,16 @@ import {
   UserService
 } from './service.index'
 import { LoginGuardGuard } from './guards/login-guard.guard';
+import { ModalUploadService } from '../components/modal-upload/modal-upload.service';
 
 @NgModule({
   providers: [
     SettingsService,
     SharedService,
-    SidebarService,
+    SidebarService,   
     UserService,
-    LoginGuardGuard
+    LoginGuardGuard,
+    ModalUploadService
   ],
   imports: [
     CommonModule,

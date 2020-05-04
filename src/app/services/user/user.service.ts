@@ -99,16 +99,19 @@ export class UserService {
 
   updateUser(user:User){
 
-   // let id = localStorage.getItem('id')
     let url = _URL_+'/user/'+ user._id 
     url+='?token='+this.token
+    
     return this.http.put(url,user).pipe(
+
       map( (resp:any) => {
+       
+        if(user._id === this.user._id){
+          this.saveStorage(resp.saveUser._id, this.token,resp.saveUser)
+        }
         
         Swal.fire('Usuario actualizado exitosamente', user.name, 'success')
-                
-        this.saveStorage(resp.saveUser._id, this.token,resp.saveUser)
-        
+                      
         return true
       })
     )
@@ -130,6 +133,40 @@ export class UserService {
                       Swal.fire('No se pudo actualizar la imagen', 'oops', 'warning')
                     })
   }
+
+  getUsers(since : number){
+
+    let url = _URL_ + '/user?since='+since
+
+    return this.http.get(url)
+  }
+
+  searchUser(value:string){
+
+    let url = _URL_ + '/search/coleccion/users/'+value
+
+    return this.http.get(url).pipe(
+      map((resp:any) => {return resp.users})
+    )
+
+  }
   
+  deleteUser(id:string){
+
+    let url = _URL_ + '/user/'+id
+    url += '?token='+this.token
+
+    return this.http.delete(url)
+                .pipe(map(resp => {
+                  Swal.fire(
+                    'Elimado!',
+                    'Usuario eliminado correctamente',
+                    'success'
+                  )
+                  return resp
+                }))
+
+
+  }
 
 }

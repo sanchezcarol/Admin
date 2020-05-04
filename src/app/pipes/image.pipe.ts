@@ -11,7 +11,6 @@ export class ImagePipe implements PipeTransform {
   transform(img:string, tipo:string = 'users'): any {
   
     let url = _URL_+'/images'
-    console.log(img);
     
     if(!img){
       return url += '/users/xxx'

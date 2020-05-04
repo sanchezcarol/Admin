@@ -1,0 +1,30 @@
+<div class="background-modal animated fadeIn" [ngClass]="modalService.hidden">
+
+    <div class="modal" tabindex="-1" role="dialog" style="display: block;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button (click)="close()" type="button" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                </div>
+                <div class="modal-body" align="center">
+                    <h4 class="card-title">Usuario - Foto de perfil</h4>
+
+                    <img *ngIf="!imgTemp" class="w150" [src]="'xxx' | image">
+                    <img *ngIf="imgTemp" class="w150" [src]="imgTemp">
+                    <br><br>
+
+                    <input (change)="change($event.target.files[0])" type="file">
+
+
+                </div>
+                <div class="modal-footer">
+                    <button (click)="close()" type="button" class="btn btn-secondary">Cancelar</button>
+                    <button (click)="upload()" [disabled]="!imgTemp" type="button" class="btn btn-primary">Guardar Cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

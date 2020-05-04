@@ -16,6 +16,15 @@ export class SidebarService {
         { titulo: 'Graphics1', url: '/graphics1'},
         { titulo: 'Rxjs', url: '/rxjs'}
       ]
+    },
+    {
+      titulo: 'Mantenimiento',
+      icon: 'mdi mdi-folder-lock-open',
+      submenu:[
+        { titulo: 'Medicos', url:'/medics'},
+        { titulo: 'Hospitales', url:'/hospitals'},
+        { titulo: 'Usuarios', url: '/users'}
+      ]
     }
   ]
 
