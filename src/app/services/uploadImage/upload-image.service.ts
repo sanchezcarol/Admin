@@ -14,7 +14,6 @@ export class UploadImageService {
 
       let formData = new FormData()
       let xhr = new XMLHttpRequest()
-      console.log(file.name);
       
       formData.append('img',file, file.name)
 
@@ -23,12 +22,10 @@ export class UploadImageService {
         if(xhr.readyState == 4){
           
           if(xhr.status === 200){
-            console.log('carga bien');
             resolve( JSON.parse( xhr.response) )
             
           }
           else{
-            console.log('mal');
             reject(xhr.response)          
           }
 

@@ -1,0 +1,71 @@
+<div class="row animated fadeIn">
+
+    <div class="col-md-7">
+        <div class="card card-body">
+            <h3 class="box-title m-b-30">Médico: {{medic.name}}</h3>
+            <div class="row">
+                <div class="col-sm-12 col-xs-12">
+                    <form #f="ngForm" ngNativeValidate (ngSubmit)="createMedic()">
+                        <div class="form-group">
+                            <label>Nombre del médico</label>
+                            <input [(ngModel)]="medic.name" name="name" type="text" class="form-control" placeholder="Nombre" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Hospital</label>
+                            <select (change)="getHospital($event.target.value)" [(ngModel)]="medic.hospital" name="hospital" class="form-control" required>
+                              <option  value="">Seleccione Hospital</option>
+                              <option *ngFor="let hospital of hospitals" [value]="hospital._id">
+                                {{ hospital.name }}
+                              </option>
+                            </select>
+
+                        </div>
+
+                        <a routerLink="/medics" class="btn btn-inverse waves-effect waves-light m-r-10">Cancelar</a>
+
+                        <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">
+                          <i class="fa fa-save"></i>
+                          Guardar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-5" *ngIf="medic._id">
+        <div class="card">
+            <div class="card-body" align="center">
+                <h4 class="card-title">Foto de perfil</h4>
+                <img (click)="chanceImage()" class="w300" [src]="medic.img | image:'medics'">
+                <br>
+                <br>
+                <button (click)="chanceImage()" class="btn btn-block waves-effect waves-light m-r-10">
+                    <i class="fa fa-save"></i>
+                    Cambiar foto 
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="col-md-7" *ngIf="medic._id">
+        <div class="card card-body">
+
+            <div class="col-md-4">
+                <h4 class="box-title m-b-0">Información del Hospital</h4>
+                <h3>Nombre: </h3>{{hospital.name}}
+            </div>
+
+            <div class="col-md-6">
+                <h4 class="card-title">Foto de perfil</h4>
+                <img [src]="hospital.img | image:'hospitals'" class="rounded img-fluid w300">
+                <br>
+            </div>
+
+
+
+        </div>
+    </div> -->
+
+</div>

@@ -37,7 +37,7 @@ export class UsersComponent implements OnInit {
     let desde = this.since + num
     
     if(desde < 0) return
-    if(desde > this.total) return
+    if(desde >= this.total) return
 
     this.since += num
     this.getUsers()

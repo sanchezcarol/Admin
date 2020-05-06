@@ -24,6 +24,7 @@ export class UserService {
     else {
       this.token = '';
       this.user = null
+      
     }
   }
 
@@ -32,6 +33,7 @@ export class UserService {
     this.token = ''
     localStorage.removeItem('user')
     localStorage.removeItem('token')
+    localStorage.removeItem('id')
 
     window.location.href = '#/login'
   }
@@ -41,7 +43,6 @@ export class UserService {
   }
 
   saveStorage(id,token,user){
-    console.log('guardar inage ', user.img);
     
     localStorage.setItem('id',id)
     localStorage.setItem('token', token)
@@ -74,7 +75,6 @@ export class UserService {
     
     return this.http.post(url,user)
                 .pipe(map((resp:any) => {
-                  console.log('res ', resp);
                   
                   this.saveStorage(resp.id,resp.token,resp.userDB)
                   Swal.fire('Bienvenido',user.email,'success')
@@ -89,6 +89,7 @@ export class UserService {
     
     return this.http.post(url,{token})
         .pipe(map((resp:any) => {
+          
           this.saveStorage(resp.id,resp.token,resp.user)
           return true
         }))

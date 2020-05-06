@@ -6,7 +6,9 @@ import {
   SettingsService,
   SharedService,
   SidebarService,
-  UserService
+  UserService,
+  HospitalService,
+  MedicService
 } from './service.index'
 import { LoginGuardGuard } from './guards/login-guard.guard';
 import { ModalUploadService } from '../components/modal-upload/modal-upload.service';
@@ -18,7 +20,9 @@ import { ModalUploadService } from '../components/modal-upload/modal-upload.serv
     SidebarService,   
     UserService,
     LoginGuardGuard,
-    ModalUploadService
+    ModalUploadService,
+    HospitalService,
+    MedicService
   ],
   imports: [
     CommonModule,

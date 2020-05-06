@@ -62,7 +62,7 @@ export class ModalUploadComponent implements OnInit {
 
       })
       .catch(resp => {
-        console.log('error cargando imagen ... ');
+        console.log('error cargando imagen ... ', resp);
 
       })
 
