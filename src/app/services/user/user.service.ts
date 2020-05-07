@@ -74,8 +74,6 @@ export class UserService {
           return Observable.throw( err );
         })
         )
-      
-
   }
 
   loginUser(user: User, recuerdame: boolean = false) {
@@ -98,6 +96,22 @@ export class UserService {
       })
       )
 
+  }
+
+  renewToken(){
+    
+    let url = _URL_+'/login/renewToken?token='+this.token
+
+    return this.http.get(url).pipe(
+      map((resp:any) => {
+        this.token = resp.token    
+        localStorage.setItem('token', this.token)
+      }),
+      catchError(err => {
+        Swal.fire( 'Error en la renovación del token','', 'error' );
+        return Observable.throw( err );
+      })
+    )
   }
 
   loginGoogle(token) {

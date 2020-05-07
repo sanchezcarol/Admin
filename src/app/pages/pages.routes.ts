@@ -13,37 +13,34 @@ import { HospitalsComponent } from './hospitals/hospitals.component';
 import { MedicsComponent } from './medics/medics/medics.component';
 import { MedicComponent } from './medics/medics/medic.component';
 import { SearchComponent } from './search/search.component';
+import { VerifyTokenGuard } from '../services/guards/verify-token.guard';
 
 
 const PagesRoutes: Routes = [
-    { 
-        path: '', 
-        component: PagesComponent,
-        canActivate: [LoginGuardGuard],
-        children: [
-            { path: 'account-settings', component: AccountSettingsComponent, data: {titulo:"Ajustes"}},
-            { path: 'profile', component: ProfileComponent, data: {titulo:'Perfil de Usuario'}},
-            { path: 'dashboard', component: DashboardComponent, data: {titulo:"Dashboard"} },
-            { path: 'graphics1', component: Graphics1Component, data: {titulo:"Graficas"} },
-            { path: 'progress', component:ProgressComponent, data: {titulo:"Progress"} },
-            { path: 'promesas', component: PromesasComponent, data: {titulo:"Promesas"}},
-            { path: 'rxjs', component: RxjsComponent, data: {titulo:"Rxjs"}},
-            { path: 'search/:value', component: SearchComponent, data: {titulo:"Busqueda"}},
 
-            //Mantenimiento
-            {
-                canActivate: [AdminGuard], 
-                path: 'users', 
-                component: UsersComponent, 
-                data: {titulo:'Mantenimiento de Usuarios'}
-            },
-            { path: 'hospitals', component: HospitalsComponent, data: {titulo:'Mantenimiento de Hospitales'}},
-            { path: 'medics', component: MedicsComponent, data: {titulo:'Mantenimiento de Médicos'}},
-            { path: 'medic/:id', component: MedicComponent, data: {titulo:'Actualizar Médico'}},
-            { path: '', pathMatch:'full', redirectTo:'dashboard' },
-    
-        ]
+    { path: 'account-settings', component: AccountSettingsComponent, canActivate:[VerifyTokenGuard] ,data: { titulo: "Ajustes" } },
+    { path: 'profile', component: ProfileComponent, data: { titulo: 'Perfil de Usuario' } },
+    { path: 'dashboard', component: DashboardComponent, data: { titulo: "Dashboard" } },
+    { path: 'graphics1', component: Graphics1Component, data: { titulo: "Graficas" } },
+    { path: 'progress', component: ProgressComponent, data: { titulo: "Progress" } },
+    { path: 'promesas', component: PromesasComponent, data: { titulo: "Promesas" } },
+    { path: 'rxjs', component: RxjsComponent, data: { titulo: "Rxjs" } },
+    { path: 'search/:value', component: SearchComponent, data: { titulo: "Busqueda" } },
+
+    //Mantenimiento
+    {
+        canActivate: [AdminGuard],
+        path: 'users',
+        component: UsersComponent,
+        data: { titulo: 'Mantenimiento de Usuarios' }
     },
+    { path: 'hospitals', component: HospitalsComponent, data: { titulo: 'Mantenimiento de Hospitales' } },
+    { path: 'medics', component: MedicsComponent, data: { titulo: 'Mantenimiento de Médicos' } },
+    { path: 'medic/:id', component: MedicComponent, data: { titulo: 'Actualizar Médico' } },
+    { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
+
+
+
 ]
 
-export const PAGES_ROUTES = RouterModule.forChild (PagesRoutes)
+export const PAGES_ROUTES = RouterModule.forChild(PagesRoutes)

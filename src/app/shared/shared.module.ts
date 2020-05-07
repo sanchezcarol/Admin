@@ -7,19 +7,22 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { PipesModule } from '../pipes/pipes.module';
+import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
 
 @NgModule({
     declarations:[
         BreadcrumbsComponent,
         HeaderComponent,
         SidebarComponent,
-        PagenotfoundComponent
+        PagenotfoundComponent,
+        ModalUploadComponent
     ],
     exports:[
         BreadcrumbsComponent,
         HeaderComponent,
         SidebarComponent,
-        PagenotfoundComponent
+        PagenotfoundComponent,
+        ModalUploadComponent
     ],
     imports:[
         CommonModule,
