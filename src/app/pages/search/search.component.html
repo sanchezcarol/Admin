@@ -1,0 +1,68 @@
+<div class="row">
+
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-tittle">Usuarios</h3>
+
+                <table class="table table-hover">
+
+                    <tbody>
+                        <tr *ngFor="let user of users" [routerLink]="['/users']" style="cursor: pointer;">
+                            <td> <img [src]="user.img | image" class="img-50"></td>
+                            <td>{{user.name}}</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+                <div class="alert alert-info" *ngIf="users.length === 0">
+                    No hay Registros
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-tittle">Hospitales</h3>
+
+                <table class="table table-hover">
+
+                    <tbody>
+                        <tr *ngFor="let hospital of hospitals" [routerLink]="['/hospitals']" style="cursor: pointer;">
+                            <td> <img [src]="hospital.img | image:'hospitals'" class="img-50"></td>
+                            <td>{{hospital.name}}</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+                <div class="alert alert-info" *ngIf="hospitals.length === 0">
+                    No hay Registros
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-tittle">Médicos</h3>
+
+                <table class="table table-hover">
+
+                    <tbody>
+                        <tr *ngFor="let medic of medics">
+                            <td> <img [src]="medic.img | image:'medics'" class="img-50"></td>
+                            <td>{{medic.name}}</td>
+                            <td><button [routerLink]="['/medic',medic._id]" class="btn btn-primary ">
+                                <i class="fa fa-info"></i>
+                            </button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="alert alert-info" *ngIf="medics.length === 0">
+                    No hay Registros
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

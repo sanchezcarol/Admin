@@ -42,8 +42,7 @@ export class Graphics1Component implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.graphics);
-    
+
   }
 
 }

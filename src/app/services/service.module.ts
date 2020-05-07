@@ -8,10 +8,12 @@ import {
   SidebarService,
   UserService,
   HospitalService,
-  MedicService
+  MedicService,
+  AdminGuard
 } from './service.index'
 import { LoginGuardGuard } from './guards/login-guard.guard';
 import { ModalUploadService } from '../components/modal-upload/modal-upload.service';
+
 
 @NgModule({
   providers: [
@@ -22,7 +24,8 @@ import { ModalUploadService } from '../components/modal-upload/modal-upload.serv
     LoginGuardGuard,
     ModalUploadService,
     HospitalService,
-    MedicService
+    MedicService,
+    AdminGuard
   ],
   imports: [
     CommonModule,

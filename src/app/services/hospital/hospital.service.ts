@@ -66,13 +66,12 @@ export class HospitalService {
 
     searchHospital(value:string){
 
-      let url = _URL_+'/search/todo/'+value
+      let url = _URL_+'/search/coleccion/hospitals/'+value
       url += '?token='+this.userService.token
 
       return this.http.get(url).pipe(map((resp:any=[])=>{
-        console.log(resp);
-        
-        return resp.hospitales
+      
+        return resp.hospitals
       }))
 
 
